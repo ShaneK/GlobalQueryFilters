@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-lg-10 mx-auto">
+    <div class="row">
+      <div class="col-lg-5 mx-auto">
+        <div class="title row">
+          Pizza List
+        </div>
+        <div class="add-container row form-group">
+          <input type="text" class="col-lg-10 form-control"
+                 [(ngModel)]="newPizza.name"
+                 (keyup.enter)="savePizza()" />
+          <button class="btn btn-success col-lg-2" (click)="savePizza()">
+            Add
+          </button>
+        </div>
+        <div class="row">
+        <table class="col-lg-12">
+          <thead>
+          <tr>
+            <th>Type</th>
+            <th class="text-center">Active</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody *ngIf="pizzaList.length">
+          <tr *ngFor="let pizza of pizzaList">
+            <td>{{pizza.name}}</td>
+            <td class="text-center"><i class="fas" [ngClass]="{ 'fa-check': pizza.active, 'fa-times': !pizza.active }"></i></td>
+            <td class="text-right"><i class="fas fa-trash-alt" (click)="deletePizza(pizza)" *ngIf="pizza.active"></i></td>
+          </tr>
+          </tbody>
+          <tbody *ngIf="!pizzaList.length">
+          <tr>
+            <td colspan="3" class="text-center">
+              Today is a sad day, for there is no pizza
+              <i class="far fa-sad-tear"></i>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+      <div class="col-lg-5 mx-auto">
+        <div class="title row toppings">
+          Topping List
+        </div>
+        <div class="add-container row form-group">
+          <input type="text" class="col-lg-10 form-control"
+                 [(ngModel)]="newTopping.name"
+                 (keyup.enter)="saveTopping()" />
+          <button class="btn btn-success col-lg-2" (click)="saveTopping()">
+            Add
+          </button>
+        </div>
+        <div class="row">
+      <table class="col-lg-12">
+        <thead>
+        <tr>
+          <th>Type</th>
+          <th class="text-center">Active</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody *ngIf="toppingList.length">
+        <tr *ngFor="let topping of toppingList">
+          <td>{{topping.name}}</td>
+          <td class="text-center"><i class="fas" [ngClass]="{ 'fa-check': topping.active, 'fa-times': !topping.active }"></i></td>
+          <td class="text-right"><i class="fas fa-trash-alt" (click)="deleteTopping(topping)" *ngIf="topping.active"></i></td>
+        </tr>
+        </tbody>
+        <tbody *ngIf="!toppingList.length">
+        <tr>
+          <td colspan="3" class="text-center">
+            Today is a sad day, for there are no toppings
+            <i class="far fa-sad-tear"></i>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
