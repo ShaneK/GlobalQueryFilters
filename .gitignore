@@ -291,6 +291,3 @@ __pycache__/
 
 # Client build generated code
 wwwroot/
-
-# Custom font icon CSS because it will be regenerated automatially on build/run
-src/Eoc.Web/src/assets/customIcons/css
